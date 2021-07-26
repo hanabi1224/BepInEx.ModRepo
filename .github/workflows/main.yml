@@ -31,6 +31,7 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_PUBLISH_TOKEN: ${{ secrets.VERCEL_PUBLISH_TOKEN }}
         run: |
           cd publish
-          npx vercel --prod
+          npx vercel --prod -f -c -C -t $VERCEL_PUBLISH_TOKEN
